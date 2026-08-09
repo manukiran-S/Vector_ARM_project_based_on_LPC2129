@@ -295,9 +295,9 @@ The source is written in Embedded C for the LPC2129 and uses:
 -   UART, I2C, LCD, ADC, CAN and peripheral drivers
 
 ## 👥 Project Team
-- [Manu Kiran S][V25BE8M5](https://github.com/manukiran-S)
-- [Naveen][v25be8g3](https://github.com/naveenguvvala24)
-- [Prajwal H Chalawadi][V25BE8P4](https://github.com/prajwalhchalawadi)
-- [Anshu Patel][V25BE8P6](https://github.com/Anshu8849)
-- [Ganesh][V25BE8K11](https://github.com/Kanalaganesh)
+- [Manu Kiran S](https://github.com/manukiran-S)
+- [Naveen](https://github.com/naveenguvvala24)
+- [Prajwal H Chalawadi](https://github.com/prajwalhchalawadi)
+- [Anshu Patel](https://github.com/Anshu8849)
+- [Ganesh](https://github.com/Kanalaganesh)
 
