@@ -4,7 +4,7 @@
 #include "header.h"
 
 
-#define THINGSPEAK_API_KEY  "C1VOVACY03F0RC1Y"
+#define THINGSPEAK_API_KEY  "enter_your_API_write_key"
 
 char http[350];
 char cmd[40];
