@@ -294,6 +294,10 @@ The source is written in Embedded C for the LPC2129 and uses:
 -   Project-specific `header.h`
 -   UART, I2C, LCD, ADC, CAN and peripheral drivers
 
-
-
+## 👥 Project Team
+- [Manu Kiran S][V25BE8M5](https://github.com/manukiran-S)
+- [Naveen][v25be8g3](https://github.com/naveenguvvala24)
+- [Prajwal H Chalawadi][V25BE8P4](https://github.com/prajwalhchalawadi)
+- [Anshu Patel][V25BE8P6](https://github.com/Anshu8849)
+- [Ganesh][V25BE8K11](https://github.com/Kanalaganesh)
 
