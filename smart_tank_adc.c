@@ -43,7 +43,7 @@ u32 smart_tank_adc_water_level(void){
 	
 	  lcd_cmd(0xc0);                     //1st row of lcd 16x2
 		lcd_string("Distance:");        //Distance: on lcd
-		lcd_integer(10);//ultrasonic_distance_cm());             //Distance: lcd
+		lcd_integer(ultrasonic_distance_cm());//ultrasonic_distance_cm());             //Distance: lcd
 	  
 	
     uart0_tx_string("PUMP :ON \r\n");
@@ -65,7 +65,7 @@ u32 smart_tank_adc_water_level(void){
     i2c_write(0xA0, 0x07,adc_out_1);//water level low
 		delay_ms(10);
     //eeprom ultrasonic distance
-		i2c_write(0xA0, 0x09, 10);//ultrasonic_distance_cm());  //water distance form ultrasonic sensor
+		i2c_write(0xA0, 0x09, ultrasonic_distance_cm());//ultrasonic_distance_cm());  //water distance form ultrasonic sensor
 		delay_ms(10);
     //eeprom temperature
 		i2c_write(0xA0, 0x0A, smart_tank_adc_temp());  //surrounding temperature data
@@ -114,12 +114,12 @@ else if(adc_out_1 >= 800)//if tank is full
 		lcd_integer(adc_out_1);             //water level on lcd
 	
 	  uart0_tx_string("Distance:");
-    uart0_integer(10);//ultrasonic_distance_cm());
+    uart0_integer(ultrasonic_distance_cm());//ultrasonic_distance_cm());
 	  uart0_tx_string("\r\n");
 	
 	  lcd_cmd(0xc0);                     //1st row of lcd 16x2
 		lcd_string("Distance:");        //Distance: on lcd
-		lcd_integer(10);//ultrasonic_distance_cm());             //Distance: lcd
+		lcd_integer(ultrasonic_distance_cm());//ultrasonic_distance_cm());             //Distance: lcd
 	
 	  uart0_tx_string("PUMP Status:OFF \r\n");
     uart0_tx_string("Relay Status:OFF \r\n");
@@ -130,7 +130,7 @@ else if(adc_out_1 >= 800)//if tank is full
 	
 	  lcd_cmd(0x01);
 		delay_ms(20);
-		lcd_cmd(0x80);                     //1st row of lcd 16x2
+		lcd_cmd(0x80);                        //1st row of lcd 16x2
 		lcd_string("PUMP_STATUS:OFF");        //water level on lcd
 		lcd_cmd(0XC0);
 		lcd_string("TEMP:");
@@ -142,7 +142,7 @@ else if(adc_out_1 >= 800)//if tank is full
 		i2c_write(0xA0, 0x08, (adc_out_1 >> 8) & 0xFF);  //water level High,higher byte
 		delay_ms(10);
 		//eeprom ultrasonic distance
-		i2c_write(0xA0, 0x09,10);// ultrasonic_distance_cm());  //water distance form ultrasonic sensor
+		i2c_write(0xA0, 0x09, ultrasonic_distance_cm());// ultrasonic_distance_cm());  //water distance form ultrasonic sensor
 		delay_ms(10);
 		//eeprom temperature
 		i2c_write(0xA0, 0x0A, smart_tank_adc_temp());  //surrounding temperature data
@@ -193,9 +193,10 @@ u32 smart_tank_adc_ultrasonic(void){
 int smart_tank_adc_temp(void){
   u32 adc_out_3;
   float vout,temp;  
-	adc_out_3=adc_read(2);//adc temp sensor 
-	vout=(adc_out_3*3.3)/1023;
-	temp=(vout-0.5)/0.01;
+	adc_out_3=adc_read(2);//adc temp sensor
+	temp = (adc_out * 3.3f * 100.0f) / 1023.0f;
+	//vout=(adc_out_3*3.3)/1023;
+	//temp=(vout-0.5)/0.01;
 	return (int)temp;
 }
 
