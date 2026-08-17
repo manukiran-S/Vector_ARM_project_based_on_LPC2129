@@ -105,14 +105,14 @@ res=smart_tank_timer();//taking data from rtc is time is 30mins to update data a
 		uart0_integer(10);//adc_out2);           //distance on uart
 		lcd_cmd(0xc0);                     //2nd row of lcd 16x2
 		lcd_string("Distance:");           //distance on lcd
-		lcd_integer(10);//adc_out2);             //distance on lcd
+		lcd_integer(adc_out2);//adc_out2);             //distance on lcd
 		//eeprom ultrasonic distance
-		i2c_write(0xA0, 0x09, 10);//adc_out2);  //water distance form ultrasonic sensor
+		i2c_write(0xA0, 0x09, adc_out2);//adc_out2);  //water distance form ultrasonic sensor
 		delay_ms(10);
 		
 		uart0_tx_string("PUMP Status:OFF \r\n");
-    uart0_tx_string("Relay Status:OFF \r\n");
-    uart0_tx_string("Valve Status:OFF \r\n");
+        uart0_tx_string("Relay Status:OFF \r\n");
+        uart0_tx_string("Valve Status:OFF \r\n");
 		uart0_tx_string("\r\nTemperature:");//temp on uart
 		uart0_integer(adc_out3);            //temp on uart
 		uart0_tx_string(" C\r\n");
